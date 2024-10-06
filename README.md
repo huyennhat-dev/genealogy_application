@@ -8,7 +8,6 @@
 
 ### 1. Đăng ký, đăng nhập:
 - Người dùng có thể tạo tài khoản hoặc đăng nhập thông qua email, số điện thoại hoặc tài khoản mạng xã hội.
-- Hỗ trợ xác thực hai yếu tố (2FA) để tăng cường bảo mật.
 
 ### 2. Chọn vai trò người dùng:
 - **Tộc trưởng**: Khi chọn vai trò này trong quá trình đăng ký, người dùng sẽ tạo ra một gia tộc mới và được cấp mã gia tộc để chia sẻ cho các thành viên khác.
