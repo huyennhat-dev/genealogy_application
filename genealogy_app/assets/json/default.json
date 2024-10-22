@@ -1,0 +1,506 @@
+{
+    "name": "Trần Thừa",
+    "id": 1,
+    "children": [
+      {
+        "name": "Trần Liễu",
+        "id": 81,
+        "children": [
+          {
+            "name": "Trần Doãn",
+            "id": 87,
+            "children": [],
+            "data": {
+              "to_chi": 1,
+              "nganh": 0,
+              "nhanh": 0,
+              "ho_ten": "Trần Doãn",
+              "id": 87,
+              "thu_tu": 1,
+              "gioi_tinh": "(Nam)",
+              "doi": 3,
+              "img": "https://khbvptr.vn/wp-content/uploads/2024/09/anh-gai-xinh-cute-16X3IpgS.jpg",
+              "chuc_vu": "",
+              "parent_id": 81,
+              "sinh": "?",
+              "mat": "?"
+            }
+          },
+          {
+            "name": "Trần Quốc Tuấn",
+            "id": 88,
+            "children": [
+              {
+                "name": "Trần Quốc Nghiễn",
+                "id": 90,
+                "children": [],
+                "data": {
+                  "to_chi": 1,
+                  "nganh": 1,
+                  "nhanh": 1,
+                  "ho_ten": "Trần Quốc Nghiễn",
+                  "id": 90,
+                  "thu_tu": 1,
+                  "gioi_tinh": "(Nam)",
+                  "doi": 4,
+                  "img": "https://khbvptr.vn/wp-content/uploads/2024/09/anh-gai-xinh-cute-16X3IpgS.jpg",
+                  "chuc_vu": "",
+                  "parent_id": 88,
+                  "sinh": "?",
+                  "mat": "?"
+                }
+              },
+              {
+                "name": "Trần Quốc Uất",
+                "id": 91,
+                "children": [],
+                "data": {
+                  "to_chi": 1,
+                  "nganh": 1,
+                  "nhanh": 2,
+                  "ho_ten": "Trần Quốc Uất",
+                  "id": 91,
+                  "thu_tu": 2,
+                  "gioi_tinh": "(Nam)",
+                  "doi": 4,
+                  "img": "https://khbvptr.vn/wp-content/uploads/2024/09/anh-gai-xinh-cute-16X3IpgS.jpg",
+                  "chuc_vu": "",
+                  "parent_id": 88,
+                  "sinh": "?",
+                  "mat": "?"
+                }
+              },
+              {
+                "name": "Trần Quốc Hiện",
+                "id": 92,
+                "children": [],
+                "data": {
+                  "to_chi": 1,
+                  "nganh": 1,
+                  "nhanh": 3,
+                  "ho_ten": "Trần Quốc Hiện",
+                  "id": 92,
+                  "thu_tu": 3,
+                  "gioi_tinh": "(Nam)",
+                  "doi": 4,
+                  "img": "https://khbvptr.vn/wp-content/uploads/2024/09/anh-gai-xinh-cute-16X3IpgS.jpg",
+                  "chuc_vu": "",
+                  "parent_id": 88,
+                  "sinh": "?",
+                  "mat": "?"
+                }
+              },
+              {
+                "name": "Khâm Từ Bảo Thánh hoàng hậu",
+                "id": 93,
+                "children": [],
+                "data": {
+                  "to_chi": 1,
+                  "nganh": 1,
+                  "nhanh": 0,
+                  "ho_ten": "Khâm Từ Bảo Thánh hoàng hậu",
+                  "id": 93,
+                  "thu_tu": 4,
+                  "gioi_tinh": "(Nữ)",
+                  "doi": 4,
+                  "img": "https://khbvptr.vn/wp-content/uploads/2024/09/anh-gai-xinh-cute-16X3IpgS.jpg",
+                  "chuc_vu": "",
+                  "parent_id": 88,
+                  "sinh": "?",
+                  "mat": "13/9/1293"
+                }
+              }
+            ],
+            "data": {
+              "to_chi": 1,
+              "nganh": 1,
+              "nhanh": 0,
+              "ho_ten": "Trần Quốc Tuấn",
+              "id": 88,
+              "thu_tu": 2,
+              "gioi_tinh": "(Nam)",
+              "doi": 3,
+              "img": "https://khbvptr.vn/wp-content/uploads/2024/09/anh-gai-xinh-cute-16X3IpgS.jpg",
+              "chuc_vu": "",
+              "parent_id": 81,
+              "sinh": "?/?/1228",
+              "mat": "3/10/1300"
+            }
+          },
+          {
+            "name": "Thiên Cảm Hoàng hậu",
+            "id": 89,
+            "children": [],
+            "data": {
+              "to_chi": 1,
+              "nganh": 0,
+              "nhanh": 0,
+              "ho_ten": "Thiên Cảm Hoàng hậu",
+              "id": 89,
+              "thu_tu": 3,
+              "gioi_tinh": "(Nữ)",
+              "doi": 3,
+              "img": "https://khbvptr.vn/wp-content/uploads/2024/09/anh-gai-xinh-cute-16X3IpgS.jpg",
+              "chuc_vu": "",
+              "parent_id": 81,
+              "sinh": "?",
+              "mat": "?"
+            }
+          }
+        ],
+        "data": {
+          "to_chi": 1,
+          "nganh": 0,
+          "nhanh": 0,
+          "ho_ten": "Trần Liễu",
+          "id": 81,
+          "thu_tu": 1,
+          "gioi_tinh": "(Nam)",
+          "doi": 2,
+          "img": "https://khbvptr.vn/wp-content/uploads/2024/09/anh-gai-xinh-cute-16X3IpgS.jpg",
+          "chuc_vu": "Tổ chi 1",
+          "parent_id": 1,
+          "sinh": "?",
+          "mat": "?"
+        }
+      },
+      {
+        "name": "Trần Thái Tông",
+        "id": 82,
+        "children": [
+          {
+            "name": "Trần Quốc Khang",
+            "id": 94,
+            "children": [],
+            "data": {
+              "to_chi": 2,
+              "nganh": 0,
+              "nhanh": 0,
+              "ho_ten": "Trần Quốc Khang",
+              "id": 94,
+              "thu_tu": 1,
+              "gioi_tinh": "(Nam)",
+              "doi": 3,
+              "img": "https://khbvptr.vn/wp-content/uploads/2024/09/anh-gai-xinh-cute-16X3IpgS.jpg",
+              "chuc_vu": "",
+              "parent_id": 82,
+              "sinh": "1/4/1237",
+              "mat": "30/5/1300"
+            }
+          },
+          {
+            "name": "Trần Thánh Tông",
+            "id": 95,
+            "children": [
+              {
+                "name": "Thiên Thụy Công chúa",
+                "id": 99,
+                "children": [],
+                "data": {
+                  "to_chi": 2,
+                  "nganh": 0,
+                  "nhanh": 0,
+                  "ho_ten": "Thiên Thụy Công chúa",
+                  "id": 99,
+                  "thu_tu": 1,
+                  "gioi_tinh": "(Nữ)",
+                  "doi": 4,
+                  "img": "https://khbvptr.vn/wp-content/uploads/2024/09/anh-gai-xinh-cute-16X3IpgS.jpg",
+                  "chuc_vu": "",
+                  "parent_id": 95,
+                  "sinh": "?",
+                  "mat": "16/2/1308"
+                }
+              },
+              {
+                "name": "Trần Nhân Tông",
+                "id": 100,
+                "children": [
+                  {
+                    "name": "Trần Anh Tông",
+                    "id": 102,
+                    "children": [],
+                    "data": {
+                      "to_chi": 2,
+                      "nganh": 0,
+                      "nhanh": 0,
+                      "ho_ten": "Trần Anh Tông",
+                      "id": 102,
+                      "thu_tu": 1,
+                      "gioi_tinh": "(Nam)",
+                      "doi": 5,
+                      "img": "https://phanmemgiapha.vn/images/tree/1/word-image-1747-1.jpeg",
+                      "chuc_vu": "",
+                      "parent_id": 100,
+                      "sinh": "25/10/1276",
+                      "mat": "21/4/1320"
+                    }
+                  },
+                  {
+                    "name": "Trần Quốc Chẩn",
+                    "id": 103,
+                    "children": [],
+                    "data": {
+                      "to_chi": 2,
+                      "nganh": 0,
+                      "nhanh": 0,
+                      "ho_ten": "Trần Quốc Chẩn",
+                      "id": 103,
+                      "thu_tu": 2,
+                      "gioi_tinh": "(Nam)",
+                      "doi": 5,
+                      "img": "https://khbvptr.vn/wp-content/uploads/2024/09/anh-gai-xinh-cute-16X3IpgS.jpg",
+                      "chuc_vu": "",
+                      "parent_id": 100,
+                      "sinh": "?/?/1281",
+                      "mat": "?/?/1328"
+                    }
+                  },
+                  {
+                    "name": "Huyền Trân Công chúa",
+                    "id": 104,
+                    "children": [],
+                    "data": {
+                      "to_chi": 2,
+                      "nganh": 0,
+                      "nhanh": 0,
+                      "ho_ten": "Huyền Trân Công chúa",
+                      "id": 104,
+                      "thu_tu": 3,
+                      "gioi_tinh": "(Nữ)",
+                      "doi": 5,
+                      "img": "https://khbvptr.vn/wp-content/uploads/2024/09/anh-gai-xinh-cute-16X3IpgS.jpg",
+                      "chuc_vu": "",
+                      "parent_id": 100,
+                      "sinh": "?",
+                      "mat": "?"
+                    }
+                  }
+                ],
+                "data": {
+                  "to_chi": 2,
+                  "nganh": 0,
+                  "nhanh": 0,
+                  "ho_ten": "Trần Nhân Tông",
+                  "id": 100,
+                  "thu_tu": 2,
+                  "gioi_tinh": "(Nam)",
+                  "doi": 4,
+                  "img": "https://phanmemgiapha.vn/images/tree/1/phat-hoang-tran-nhan-tong-1601.jpg",
+                  "chuc_vu": "",
+                  "parent_id": 95,
+                  "sinh": "7/12/1258",
+                  "mat": "16/2/1308"
+                }
+              },
+              {
+                "name": "Trần Đức Diệp",
+                "id": 101,
+                "children": [],
+                "data": {
+                  "to_chi": 2,
+                  "nganh": 0,
+                  "nhanh": 0,
+                  "ho_ten": "Trần Đức Diệp",
+                  "id": 101,
+                  "thu_tu": 3,
+                  "gioi_tinh": "(Nam)",
+                  "doi": 4,
+                  "img": "https://khbvptr.vn/wp-content/uploads/2024/09/anh-gai-xinh-cute-16X3IpgS.jpg",
+                  "chuc_vu": "",
+                  "parent_id": 95,
+                  "sinh": "?/7/1265",
+                  "mat": "3/2/1306"
+                }
+              }
+            ],
+            "data": {
+              "to_chi": 2,
+              "nganh": 0,
+              "nhanh": 0,
+              "ho_ten": "Trần Thánh Tông",
+              "id": 95,
+              "thu_tu": 2,
+              "gioi_tinh": "(Nam)",
+              "doi": 3,
+              "img": "https://phanmemgiapha.vn/images/tree/1/Trần Thánh Tông.jpg",
+              "chuc_vu": "",
+              "parent_id": 82,
+              "sinh": "12/10/1240",
+              "mat": "3/7/1290"
+            }
+          },
+          {
+            "name": "Trần Quang Khải",
+            "id": 96,
+            "children": [],
+            "data": {
+              "to_chi": 2,
+              "nganh": 0,
+              "nhanh": 0,
+              "ho_ten": "Trần Quang Khải",
+              "id": 96,
+              "thu_tu": 3,
+              "gioi_tinh": "(Nam)",
+              "doi": 3,
+              "img": "https://khbvptr.vn/wp-content/uploads/2024/09/anh-gai-xinh-cute-16X3IpgS.jpg",
+              "chuc_vu": "",
+              "parent_id": 82,
+              "sinh": "24/8/1241",
+              "mat": "26/7/1294"
+            }
+          },
+          {
+            "name": "Trần Ích Tắc",
+            "id": 97,
+            "children": [],
+            "data": {
+              "to_chi": 2,
+              "nganh": 0,
+              "nhanh": 0,
+              "ho_ten": "Trần Ích Tắc",
+              "id": 97,
+              "thu_tu": 4,
+              "gioi_tinh": "(Nam)",
+              "doi": 3,
+              "img": "https://khbvptr.vn/wp-content/uploads/2024/09/anh-gai-xinh-cute-16X3IpgS.jpg",
+              "chuc_vu": "",
+              "parent_id": 82,
+              "sinh": "?/?/1254",
+              "mat": "?/?/1329"
+            }
+          },
+          {
+            "name": "Trần Nhật Duật",
+            "id": 98,
+            "children": [],
+            "data": {
+              "to_chi": 1,
+              "nganh": 1,
+              "nhanh": 0,
+              "ho_ten": "Trần Nhật Duật",
+              "id": 98,
+              "thu_tu": 5,
+              "gioi_tinh": "(Nam)",
+              "doi": 4,
+              "img": "https://khbvptr.vn/wp-content/uploads/2024/09/anh-gai-xinh-cute-16X3IpgS.jpg",
+              "chuc_vu": "",
+              "parent_id": 82,
+              "sinh": "?/4/1255",
+              "mat": "?/?/1330"
+            }
+          }
+        ],
+        "data": {
+          "to_chi": 2,
+          "nganh": 0,
+          "nhanh": 0,
+          "ho_ten": "Trần Thái Tông",
+          "id": 82,
+          "thu_tu": 2,
+          "gioi_tinh": "(Nam)",
+          "doi": 2,
+          "img": "https://phanmemgiapha.vn/images/tree/1/3_67666-1057-1429 (1).jpg",
+          "chuc_vu": "Tổ chi 2",
+          "parent_id": 1,
+          "sinh": "9/7/1218",
+          "mat": "5/5/1277"
+        }
+      },
+      {
+        "name": "Trần Nhật Hiệu",
+        "id": 83,
+        "children": [],
+        "data": {
+          "to_chi": 0,
+          "nganh": 0,
+          "nhanh": 0,
+          "ho_ten": "Trần Nhật Hiệu",
+          "id": 83,
+          "thu_tu": 3,
+          "gioi_tinh": "(Nam)",
+          "doi": 2,
+          "img": "https://khbvptr.vn/wp-content/uploads/2024/09/anh-gai-xinh-cute-16X3IpgS.jpg",
+          "chuc_vu": "",
+          "parent_id": 1,
+          "sinh": "?/?/1225",
+          "mat": "?/?/1268"
+        }
+      },
+      {
+        "name": "Trần Bà Liệt",
+        "id": 84,
+        "children": [],
+        "data": {
+          "to_chi": 0,
+          "nganh": 0,
+          "nhanh": 0,
+          "ho_ten": "Trần Bà Liệt",
+          "id": 84,
+          "thu_tu": 4,
+          "gioi_tinh": "(Nam)",
+          "doi": 2,
+          "img": "https://khbvptr.vn/wp-content/uploads/2024/09/anh-gai-xinh-cute-16X3IpgS.jpg",
+          "chuc_vu": "",
+          "parent_id": 1,
+          "sinh": "?",
+          "mat": "?"
+        }
+      },
+      {
+        "name": "Hiệu: Thụy Bà",
+        "id": 85,
+        "children": [],
+        "data": {
+          "to_chi": 0,
+          "nganh": 0,
+          "nhanh": 0,
+          "ho_ten": "Hiệu: Thụy Bà",
+          "id": 85,
+          "thu_tu": 5,
+          "gioi_tinh": "(Nữ)",
+          "doi": 2,
+          "img": "https://phanmemgiapha.vn/images/tree/1/d6cf7d55f11f18fbcfaae9816bb3a0c5-1618828802271652351294.webp",
+          "chuc_vu": "",
+          "parent_id": 1,
+          "sinh": "?",
+          "mat": "?"
+        }
+      },
+      {
+        "name": "Hiệu: Thiên Thành",
+        "id": 86,
+        "children": [],
+        "data": {
+          "to_chi": 0,
+          "nganh": 0,
+          "nhanh": 0,
+          "ho_ten": "Hiệu: Thiên Thành",
+          "id": 86,
+          "thu_tu": 6,
+          "gioi_tinh": "(Nữ)",
+          "doi": 2,
+          "img": "https://phanmemgiapha.vn/images/tree/1/Thien-Thanh-Cong-Chua.jpg",
+          "chuc_vu": "",
+          "parent_id": 1,
+          "sinh": "?",
+          "mat": "?"
+        }
+      }
+    ],
+    "data": {
+      "to_chi": 0,
+      "nganh": 0,
+      "nhanh": 0,
+      "ho_ten": "Trần Thừa",
+      "id": 1,
+      "thu_tu": 1,
+      "gioi_tinh": "(Nam)",
+      "doi": 1,
+      "img": "https://phanmemgiapha.vn/images/tree/1/vua-tran.jpg",
+      "chuc_vu": "Tổ họ",
+      "parent_id": 0,
+      "sinh": "?",
+      "mat": "?"
+    }
+  }
