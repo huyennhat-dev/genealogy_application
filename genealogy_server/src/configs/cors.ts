@@ -1,3 +1,8 @@
+/**
+ * Author: Jinn
+ * Date: 2024-10-24
+ */
+
 import { WHITELIST_DOMAINS } from "~/utils/constants";
 import envConfig from "~/configs/environment";
 import { StatusCodes } from "http-status-codes";

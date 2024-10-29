@@ -1,9 +1,13 @@
+/**
+ * Author: Jinn
+ * Date: 2024-10-24
+ */
+
 import { Request, Response, NextFunction } from "express";
 import { verifyAccessToken } from "~/utils/token";
 import ApiError from "~/utils/api-error";
 import { ReasonPhrases, StatusCodes } from "http-status-codes";
 import { JwtPayload } from "jsonwebtoken";
-
 interface AuthenticatedRequest extends Request {
   user?: string | JwtPayload;
 }

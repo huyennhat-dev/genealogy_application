@@ -1,11 +1,15 @@
+/**
+ * Author: Jinn
+ * Date: 2024-10-24
+ */
+
 import { Router } from 'express';
 import authRoutes from './auth.routes';
-// Nhập khẩu các routes khác
+import tribeRoutes from './tribe.routes';
 
 const router = Router();
 
-// Sử dụng các route
 router.use('/auth', authRoutes);
-// Sử dụng các routes khác
+router.use('/tribe', tribeRoutes);
 
 export default router;

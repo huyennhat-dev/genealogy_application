@@ -1,3 +1,8 @@
+/**
+ * Author: Jinn
+ * Date: 2024-10-24
+ */
+
 class ApiError extends Error {
     statusCode: number; 
   

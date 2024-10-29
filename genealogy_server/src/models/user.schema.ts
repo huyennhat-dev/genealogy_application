@@ -1,27 +1,39 @@
+/**
+ * Author: Jinn
+ * Date: 2024-10-24
+ */
+
 import mongoose from "mongoose";
-import bcrypt from "bcryptjs";
 
 const userSchema = new mongoose.Schema(
   {
-    username: {
+    phoneNumber: {
       type: String,
       required: true,
       unique: true,
-      min: 6,
-      max: 40,
+      min: 10,
+      max: 11,
     },
     password: {
       type: String,
       required: true,
       min: 8,
     },
-    fullName: {
+    role: {
       type: String,
       required: true,
-      min: 4,
-      max: 40,
+      enum: ["MEMBER", "ADMIN", "LEADER"],
+      default: "MEMBER",
     },
-    
+    tribe: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "Tribe",
+    },
+    info: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Info",
+    },
     active: {
       type: Boolean,
       default: true,
@@ -31,16 +43,6 @@ const userSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-
-/**
- * Compares the provided password with the user's stored password.
- * 
- * @param {string} password - The plain text password to compare.
- * @returns {Promise<boolean>} - Returns a promise that resolves to true if the passwords match, otherwise false.
- */
-userSchema.methods.comparePassword = async function (password: string) {
-  return bcrypt.compare(password, this.password);
-};
 
 const userModel = mongoose.model("User", userSchema);
 

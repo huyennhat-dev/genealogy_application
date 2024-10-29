@@ -1,12 +1,18 @@
+/**
+ * Author: Jinn
+ * Date: 2024-10-24
+ */
+
 import jwt from "jsonwebtoken";
 import envConfig from "~/configs/environment";
+import { JwtSignInPayload } from "~/utils/type";
 
 /**
  * Generates a JSON Web Token that can be used for authentication.
  * @param {JwtPayload} payload - The payload to sign with the JWT secret.
  * @returns {string} The generated access token.
  */
-const generateAccessToken = (payload: { id: string }) => {
+const generateAccessToken = (payload: JwtSignInPayload): string => {
   return jwt.sign(payload, envConfig.JWT_SECRET, {
     expiresIn: envConfig.JWT_EXPIRES_IN,
   });

@@ -1,3 +1,9 @@
+/**
+ * Author: Jinn
+ * Date: 2024-10-24
+ */
+
+
 import swaggerJsDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
 import express from "express";

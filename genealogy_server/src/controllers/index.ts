@@ -1,3 +1,9 @@
-import authController from "~/controllers/auth.controller";
+/**
+ * Author: Jinn
+ * Date: 2024-10-24
+ */
 
-export { authController };
+import authController from "~/controllers/auth.controller";
+import tribeController from "~/controllers/tribe.controller";
+
+export { authController, tribeController };

@@ -1,3 +1,8 @@
+/**
+ * Author: Jinn
+ * Date: 2024-10-24
+ */
+
 import { z } from "zod";
 import "dotenv/config";
 

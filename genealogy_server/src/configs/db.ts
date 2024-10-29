@@ -1,3 +1,8 @@
+/**
+ * Author: Jinn
+ * Date: 2024-10-24
+ */
+
 import mongoose from "mongoose";
 import envConfig from "~/configs/environment";
 
