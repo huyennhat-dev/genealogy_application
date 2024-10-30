@@ -10,6 +10,9 @@ import tribeModel from "../models/tribe.schema";
 import { sendSuccessResponse } from "../utils/api-response";
 import userModel from "~/models/user.schema";
 import infoModel from "~/models/info.schema";
+import { oldFilePath } from "~/middleware/multer";
+import fs from "fs";
+import { ObjectId } from "mongoose";
 
 const tribeController = {
   /**
@@ -226,6 +229,7 @@ const tribeController = {
             "Không tìm thấy thành viên cha"
           );
         }
+        newTreeMember.level = parentMember.level! + 1;
       } else if (couple) {
         const coupleMember = await infoModel
           .findByIdAndUpdate(
@@ -245,12 +249,158 @@ const tribeController = {
             "Không tìm thấy thành vien couple"
           );
         }
+        newTreeMember.level = coupleMember.level;
+      } else {
+        newTreeMember.level = 1;
       }
+
+      await newTreeMember.save();
 
       return sendSuccessResponse(
         res,
         "Tạo dữ liệu thành công",
         newTreeMember,
+        StatusCodes.OK
+      );
+    } catch (error) {
+      if (error instanceof ApiError) {
+        return next(error);
+      }
+      return next(
+        new ApiError(StatusCodes.INTERNAL_SERVER_ERROR, "Đã có lỗi xảy ra")
+      );
+    }
+  },
+
+  /**
+   * Updates a tree member of a tribe.
+   *
+   * @param {Request} req - The Express request object, containing the member ID in the params and the updated information in the body.
+   * @param {Response} res - The Express response object.
+   * @param {NextFunction} next - The next middleware function in the stack.
+   * @throws {ApiError} - Throws if the required information is missing, if the member is not found, or if the tribe is not found.
+   * @returns {Response} - Returns a success response with the updated member information if the operation is successful.
+   */
+  updateTribeTreeMember: async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) => {
+    try {
+      const userId = req.user.id;
+      const memberId = req.params.id;
+      const {
+        fullName,
+        address,
+        gender,
+        dateOfBirth,
+        dateOfDeath,
+        description,
+      } = req.body;
+
+      const avatar = req.file;
+      const tribe = await tribeModel.findOne({ leader: userId }).exec();
+      if (!tribe) {
+        throw new ApiError(StatusCodes.BAD_REQUEST, "Gia tộc không tồn tại");
+      }
+
+      const existingMember = await infoModel.findById(memberId).exec();
+      if (!existingMember) {
+        throw new ApiError(StatusCodes.NOT_FOUND, "Không tìm thấy thành viên");
+      }
+
+      if (fullName) existingMember.fullName = fullName;
+      if (address) existingMember.address = address;
+      if (gender) existingMember.gender = gender;
+      if (dateOfBirth) existingMember.dateOfBirth = dateOfBirth;
+      if (dateOfDeath) existingMember.dateOfDeath = dateOfDeath;
+      if (description) existingMember.description = description;
+      if (avatar) {
+        if (existingMember.avatar) {
+          const oldAvatarPath = oldFilePath(existingMember.avatar);
+          fs.unlink(oldAvatarPath, (err) => {
+            if (err) {
+              console.error("Không thể xoá ảnh cũ:", err);
+            }
+          });
+        }
+        existingMember.avatar = avatar.path;
+      }
+
+      await existingMember.save();
+
+      return sendSuccessResponse(
+        res,
+        "Cập nhật dữ liệu thành công",
+        existingMember,
+        StatusCodes.OK
+      );
+    } catch (error) {
+      if (error instanceof ApiError) {
+        return next(error);
+      }
+      return next(
+        new ApiError(StatusCodes.INTERNAL_SERVER_ERROR, "Đã có lỗi xảy ra")
+      );
+    }
+  },
+  getTribeTree: async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const userId = req.user.id;
+      const user = await userModel.findById(userId).exec();
+      console.log(user);
+      if (!user?.tribe) {
+        throw new ApiError(StatusCodes.BAD_REQUEST, "Gia tộc không tồn tại");
+      }
+
+      const ancestor = await infoModel
+        .findOne({
+          tribe: user.tribe,
+          level: 1,
+        })
+        .exec();
+
+      if (!ancestor) {
+        throw new ApiError(
+          StatusCodes.NOT_FOUND,
+          "Không tìm thấy tổ tiên của gia tộc"
+        );
+      }
+
+      const getFamilyTree: any = async (memberId: string) => {
+        const member = await infoModel.findById(memberId).exec();
+
+        if (!member) return null;
+
+        const children = await Promise.all(
+          (member.children || []).map(async (childId) => {
+            return await getFamilyTree(childId.toString());
+          })
+        );
+
+        const couple = await Promise.all(
+          (member.couple || []).map(async (childId) => {
+            return await infoModel.findById(childId);
+          })
+        );
+
+        return {
+          id: member._id,
+          fullName: member.fullName,
+          gender: member.gender,
+          dateOfBirth: member.dateOfBirth,
+          dateOfDeath: member.dateOfDeath,
+          description: member.description,
+          couple: couple.filter((coup) => coup !== null),
+          children: children.filter((child) => child !== null),
+        };
+      };
+      const familyTree = await getFamilyTree(ancestor._id);
+
+      return sendSuccessResponse(
+        res,
+        "Lấy dữ liệu cây gia tộc thành công",
+        familyTree,
         StatusCodes.OK
       );
     } catch (error) {

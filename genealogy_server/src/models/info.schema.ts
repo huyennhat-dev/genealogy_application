@@ -32,6 +32,9 @@ const infoSchema = new mongoose.Schema(
     description: {
       type: String,
     },
+    level:{
+      type: Number,
+    },
     parent: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Info",
