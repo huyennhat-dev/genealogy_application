@@ -34,6 +34,7 @@ const userSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Info",
     },
+    fcmKey: String,
     active: {
       type: Boolean,
       default: true,

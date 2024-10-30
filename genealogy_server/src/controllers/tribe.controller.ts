@@ -412,6 +412,32 @@ const tribeController = {
       );
     }
   },
+  deleteTreeMember: async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const userId = req.user.id;
+      const memberId = req.params.id;
+
+      const user = await userModel.findById(userId).exec();
+      const member = await infoModel
+        .findOneAndDelete({
+          id: memberId,
+          tribe: user?.tribe,
+        })
+        .exec();
+      if (!member) {
+        throw new ApiError(StatusCodes.NOT_FOUND, "Không tìm thấy thành viên");
+      }
+
+      return sendSuccessResponse(res, "Xoá thành công", null, StatusCodes.OK);
+    } catch (error) {
+      if (error instanceof ApiError) {
+        return next(error);
+      }
+      return next(
+        new ApiError(StatusCodes.INTERNAL_SERVER_ERROR, "Đã có lỗi xảy ra")
+      );
+    }
+  },
 };
 
 export default tribeController;

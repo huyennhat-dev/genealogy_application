@@ -207,5 +207,29 @@ router
    *        200:
    *          description: Successfully retrieved tribe tree
    */
-  .get("/get-tribe-tree", authenticateJWT, tribeController.getTribeTree);
+  .get("/get-tribe-tree", authenticateJWT, tribeController.getTribeTree)
+
+  /**
+   *  @swagger
+   *  /tribe/get-tribe-tree:
+   *    delete:
+   *      tags: [Tribe]
+   *      summary: Delete tree member
+   *      parameters:
+   *        - in: path
+   *          name: id
+   *          required: true
+   *          schema:
+   *            type: string
+   *      responses:
+   *        200:
+   *          description: Successfully retrieved tribe tree
+   */
+  .delete(
+    "/delete-tree-member/:id",
+    permission([Role.LEADER, Role.ADMIN]),
+    authenticateJWT,
+    tribeController.deleteTreeMember
+  );
+
 export default router;
