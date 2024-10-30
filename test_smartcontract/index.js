@@ -1,24 +1,18 @@
 import Web3 from "web3";
-import { FamilyFundTransactionJson } from "./FamilyFundTransaction.js"; // Đường dẫn đến ABI
-const contractAddress = "0xe22D639b6855fDd0Abc128356AB06e265bd9D7a6"; // Địa chỉ smart contract sau khi triển khai
+import { GenealogyDocument } from "./GenealogyDocument.js"; // Đường dẫn đến ABI
+const contractAddress = "0x3445F1593371b886EaE247711359FB79ee535B5b"; // Địa chỉ smart contract sau khi triển khai
 
-const web3 = new Web3("http://192.168.1.134:7545"); // Kết nối đến Ganache
-const contract = new web3.eth.Contract(
-  FamilyFundTransactionJson.abi,
-  contractAddress
-);
+const web3 = new Web3("http://192.168.1.143:7545"); // Kết nối đến Ganache
+const contract = new web3.eth.Contract(GenealogyDocument.abi, contractAddress);
 
-async function addTransactionHash(hash) {
+async function addDocument(data) {
   const accounts = await web3.eth.getAccounts();
   const response = await contract.methods
-    .addTransactionHash(hash)
+    .addTribeDocument(data)
     .send({ from: accounts[0], gas: 6721975, gasPrice: 20000000000 });
-  return response.transactionHash;
-}
 
-async function getTransactionHash(id) {
-  const result = await contract.methods.getTransactionHash(id).call();
-  console.log(`Hash: ${result}`);
+    console.log("txIndex", response.transactionIndex)
+  return response.transactionHash;
 }
 
 async function getTransactionInfo(txHash) {
@@ -35,7 +29,7 @@ async function getTransactionInfo(txHash) {
       //   ); // Tìm log liên quan đến smart contract của bạn
       if (transactionData) {
         const decodedHash = web3.utils.toUtf8(transactionData.data); // Giải mã dữ liệu
-        console.log("Stored Hash:", decodedHash.split("@")[1]);
+        console.log("Stored Hash:", decodedHash);
       }
     } else {
       console.log("Transaction not found.");
@@ -45,69 +39,29 @@ async function getTransactionInfo(txHash) {
   }
 }
 
-async function sha256(message) {
-  const encoder = new TextEncoder();
-  const secretKey = "shgdvjhksjlvfl";
-  // Kết hợp message và secretKey
-  const data = encoder.encode(message + secretKey);
-
-  // Tạo hash SHA-256
-  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-
-  // Chuyển đổi ArrayBuffer thành mảng byte
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-
-  // Chuyển đổi mảng byte thành chuỗi hex
-  const hashHex = hashArray
-    .map((b) => b.toString(16).padStart(2, "0"))
-    .join("");
-
-  return hashHex;
+async function getTransactionHash(id) {
+  const result = await contract.methods.getTribeDocument(id).call();
+  console.log(`Hash: ${result}`);
 }
 
 // Ví dụ: thêm và lấy hash giao dịch
 (async () => {
-  //   const txHash =
-  //     "0x0a6f7f902728a7c531ebe8b1884667f57c8d23742e0e67fb34d64340aad1f903";
-  //   await getTransactionInfo(txHash);
-  //   console.log(result);
+  const data = `
+Gia tộc Nguyễn Văn
 
-  const transactionData = {
-    id: "TX123456789",
-    timestamp: "2024-10-06T14:30:00Z",
-    sender: {
-      id: "USER987654",
-      name: "Nguyễn Văn A",
-      accountNumber: "1234567890"
-    },
-    receiver: {
-      id: "USER123456",
-      name: "Trần Thị B",
-      accountNumber: "0987654321"
-    },
-    amount: 1000000,
-    currency: "VND",
-    type: "TRANSFER",
-    status: "COMPLETED",
-    description: "Chuyển tiền thanh toán hóa đơn",
-    fees: {
-      transferFee: 10000,
-      taxFee: 0
-    },
-    metadata: {
-      ipAddress: "192.168.1.100",
-      deviceInfo: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36",
-      location: "Hanoi, Vietnam"
-    }
-  };
-  const hash = await sha256(transactionData);
-  console.log(hash);
-  const txHash = await addTransactionHash(hash);
-  console.log("TxHash: ", txHash);
-//   await getTransactionHash(1);
+Gia tộc Nguyễn Văn là một dòng họ có truyền thống lâu đời tại vùng đất Bắc Bộ, Việt Nam. Tổ tiên của dòng họ, cụ Nguyễn Văn An, sinh ra vào thế kỷ 18, được biết đến là người có tầm nhìn xa, dày công lập nghiệp, và đóng góp lớn cho sự phát triển văn hóa, xã hội của làng quê thời bấy giờ. Kể từ khi thành lập gia tộc, mỗi thế hệ của dòng họ đều cố gắng duy trì và phát huy những giá trị tốt đẹp mà tổ tiên đã gây dựng, như lòng nhân ái, tinh thần hiếu học và đoàn kết trong dòng họ.
 
-  const result = await getTransactionInfo(txHash);
-  //   console.log("Result:",result);
-  const count = await contract.methods.transactionCount().call();
-  console.log("Count: ", count);
+Gia tộc Nguyễn Văn hiện có hơn 150 thành viên thuộc nhiều thế hệ. Mỗi năm, các thành viên dòng họ tổ chức một buổi gặp mặt truyền thống vào ngày giỗ tổ, vừa để tưởng nhớ cội nguồn, vừa để kết nối các thành viên, trao đổi và chia sẻ về cuộc sống, công việc. Bên cạnh đó, gia tộc còn lập ra một quỹ khuyến học nhằm hỗ trợ những người con của dòng họ có thành tích học tập xuất sắc.
+
+Dòng họ Nguyễn Văn tự hào với nhiều người con ưu tú đã đóng góp cho xã hội, bao gồm các giáo viên, bác sĩ, kỹ sư và doanh nhân. Họ không chỉ là niềm tự hào của gia đình mà còn là những cá nhân xuất sắc có ảnh hưởng tích cực đến cộng đồng. Dù trải qua nhiều biến động thời gian, dòng họ Nguyễn Văn vẫn luôn giữ vững truyền thống và ngày càng phát triển mạnh mẽ.`;
+
+    const txHash = await addDocument(data);
+    console.log("TxHash: ", txHash);
+
+    // const result = await getTransactionInfo(txHash);
+    //   console.log("Result:",result);
+  //     const count = await contract.methods.documentCount().call();
+  //     console.log("Count: ", count);
+
+//   await getTransactionHash("5");
 })();

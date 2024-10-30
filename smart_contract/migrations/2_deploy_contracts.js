@@ -1,5 +1,5 @@
-const FamilyFundTransaction = artifacts.require("FamilyFundTransaction");
+const GenealogyDocument = artifacts.require("GenealogyDocument");
 
 module.exports = function (deployer) {
-  deployer.deploy(FamilyFundTransaction);
+  deployer.deploy(GenealogyDocument);
 };
