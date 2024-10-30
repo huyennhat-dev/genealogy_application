@@ -15,6 +15,8 @@ import { generateAccessToken } from "~/utils/token";
 import { sendSuccessResponse } from "~/utils/api-response";
 import fs from "fs";
 import { oldFilePath } from "~/middleware/multer";
+import conversationModel from "~/models/conversation.schema";
+import { ConversationRole } from "~/utils/type";
 
 const authController = {
   /**
@@ -79,6 +81,11 @@ const authController = {
         });
 
         await tribe.updateOne({ leader: user.id });
+        await conversationModel.create({
+          type: ConversationRole.GROUP,
+          tribe: tribe.id,
+          members: [user.id],
+        });
 
         jwtSignInPayload.id = user.id;
         jwtSignInPayload.role = user.role;
@@ -103,6 +110,16 @@ const authController = {
         await tribeModel.updateOne(
           { code: tribeCode },
           { $addToSet: { members: user.id } }
+        );
+
+        await conversationModel.findOneAndUpdate(
+          { tribe: tribe.id },
+          {
+            $addToSet: {
+              members: user.id,
+            },
+          },
+          { new: true, useFindAndModify: false }
         );
 
         jwtSignInPayload.id = user.id;

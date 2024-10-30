@@ -14,6 +14,11 @@ enum Role {
   ADMIN = "ADMIN",
 }
 
+enum ConversationRole {
+  GROUP = "GROUP",
+  SINGLE = "SINGLE",
+}
+
 interface ApiResponse {
   statusCode: number;
   message?: string;
@@ -28,4 +33,10 @@ interface PaginationResponse<T> {
   limit: number;
 }
 
-export { JwtSignInPayload, Role, ApiResponse, PaginationResponse };
+export {
+  JwtSignInPayload,
+  Role,
+  ApiResponse,
+  PaginationResponse,
+  ConversationRole,
+};
